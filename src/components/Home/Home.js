@@ -1,22 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import Post from '../Post/Post';
+import {
+    Container, Row, Col, Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle, Button
+} from 'reactstrap';
 
 const Home = () => {
     const [posts, setPosts] = useState([]);
     useEffect(() => {
-        const url = `https://jsonplaceholder.typicode.com/posts`;
+        const url = `https://www.thesportsdb.com/api/v1/json/1/all_leagues.php`;
         fetch(url)
-        .then(res => res.json())
-        .then(data => setPosts(data))
+            .then(res => res.json())
+            .then(data => setPosts((data.leagues).slice(0, 9)))
     }, [])
     return (
-        <div>
-            <h1>This is home</h1>
-            <h3>I have got {posts.length} posts</h3>
-            {
-                posts.map(post => <Post post={post}></Post>)
-            }
-        </div>
+        <Container>
+            <Row>
+                {
+                    posts.map((post, index) => <Post post={post} index={index} ></Post>)
+                }
+            </Row>
+        </Container>
     );
 };
 

@@ -12,32 +12,9 @@ import PostDetail from "./components/PostDetail/PostDetail";
 function App() {
   return (
     <div className="App">
+      <img src='https://image.shutterstock.com/image-illustration/stadium-sunset-people-fans-3d-260nw-587826638.jpg' style={{width:'100%', height:'400px'}} />
       <Router>
       <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/home">Home2</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-        </ul>
-
-        <hr />
-
-        {/*
-          A <Switch> looks through all its children <Route>
-          elements and renders the first one whose path
-          matches the current URL. Use a <Switch> any time
-          you have multiple routes, but you want only one
-          of them to render at a time
-        */}
         <Switch>
           <Route exact path="/">
             <Home />
